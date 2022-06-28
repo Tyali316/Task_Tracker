@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Task Tracker </title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<main class="tracker">
+    <section class="greeting">
+    <header>
+        <h1> Tyali's Task Tracker </h1>
+        <p>Welcome to my Task Tracker app. This should help you to manage your time and schedule your day.</p>
+    </header>  
+    </section>  
+    <section class="create-task"> 
+      <form id="task-form">
+       <input type="text" id="new-task-input" placeholder="What do you need to schedule?"/>
+            <h2 class="title"> Pick a category: </h2>
+            <div class="options">
+                <label>
+                    <input type="radio" name="category" id="category1" value="Work" />
+                    <span class="bubble work"></span>
+                    <div>Work</div>
+                </label>
+                <label>
+                    <input type="radio" name="category" id="category2" value="Personal" />
+                    <span class="bubble personal"></span>
+                    <div>Personal</div>
+                </label>
+                <label>
+                    <input type="radio" name="category" id="category3" value="Bills" />
+                    <span class="bubble bills"></span>
+                    <div>Bills</div>
+                </label>
+                <label>
+                    <input type="radio" name="category" id="category4" value="Other" />
+                    <span class="bubble other"></span>
+                    <div>Other</div>
+                </label>
+            </div>  
+                <input type="submit" id="new-task-submit" value="Submit Task" />
+        </div> 
+    </form>
+    </section> 
+    <section class="task-list">
+        <h4>Here are your task:</h4>
+        <div class="list" id="task-list">
+         <!-- <div class="task-item">
+            <label>
+                <input type="checkbox" />
+                <span class="bubble work"></span>
+            </label>
+
+            <div class="task-content">
+                <input type="text" class="text" value="Finish project." />
+            </div>
+
+            <div class="actions">
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+           </div>
+
+            <label>
+                <input type="checkbox" />
+                <span class="bubble personal"></span>
+            </label>
+
+            <div class="task-content">
+                    <input type="text" class="text" value="Pick up groceries." />
+            </div>
+
+            <div class="actions">
+                    <button class="edit">Edit</button>
+                    <button class="delete">Delete</button>
+            </div>
+
+            <label> 
+                <input type="checkbox" />
+                <span class="bubble bills"></span>
+            </label>
+
+            <div class="task-content">
+                <input type="text" class="text" value="Pay the rent." />
+            </div>
+
+            <div class="actions">
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+            </div>
+
+            <label> 
+                <input type="checkbox" />
+                <span class="bubble other"></span>
+            </label> 
+
+            <div class="task-content">
+                    <input type="text" class="text" value="e.g. schedule your meeting." />
+            </div>
+
+            <div class="actions">
+                    <button class="edit">Edit</button>
+                    <button class="delete">Delete</button>
+            </div>   
+            </div> -->
+         </div>
+    </section>
+</main>
+    <script src="index.js"></script>
+</body>
+</html>
