@@ -1,0 +1,283 @@
+/* Trying out css variables to access the DOM in this project.*/
+:root {
+    --grey: #778899;
+    --blue: #5f9ea0;
+    --white: #f5fffa;
+    --green: #008080;
+    --dark: #a9a9a9;
+    --darkest: #000000;
+    --work: #00008b;
+    --personal: #FFDAB9;
+    --other: #20b2aa;
+    --bills: #556b2f;
+/* adding in the border-shadow root colors */
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+/* shadows for the category bubble options for radio and checkbox inputs */
+    --work-shadow: 0px 0px 4px rgba(0, 0, 139, 0.75);
+    --personal-shadow: 0px 0px 4px rgba(255, 218, 185);
+    --other-shadow: 0px 0px 4px rgb(32, 178, 170, 0.75);
+    --bills-shadow: 0px 0px 4px rgba(85, 107, 47);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+input:not([type="radio"]):not([type="checkbox"]), button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* using vh which is relative to 1% of the heightof the viewpoint.*/
+    background-color: var(--blue);
+}
+
+header {
+    /* using rem which is relative to font-size of the root element. */
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header h1 {
+    text-align: center;
+    font-family: 'Staatliches', cursive;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--darkest);
+    margin-bottom: 1rem;
+}
+
+header p {
+    text-align: center;
+   
+}
+
+.create-task input[type="text"] {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: var(--darkest);
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.create-task .options {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.create-task .options label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: #b0c4de;
+    border-radius: 0.5rem;
+    border-style: solid;
+    border-color: var(--green);
+    border-width: 2px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+/* removing the styling of the type displays to make them custom */
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+.bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    box-shadow: var(--work-shadow);
+}
+
+.bubble.personal {
+    background-color: var(--personal);
+    box-shadow: var(--personal-shadow);
+}
+
+.bubble.work {
+    background-color: var(--work);
+    box-shadow: var(--work-shadow);
+}
+
+.bubble.bills {
+  background-color: var(--bills);
+  box-shadow: var(--bills-shadow);
+}
+
+.bubble.other {
+    background-color: var(--other);
+    box-shadow: var(--other-shadow);
+}
+
+.bubble::after {
+    content: "";
+    display: block;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    background-color: var(--white);
+    box-shadow: var(--darkest);
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+}
+
+.bubble .personal::after {
+    background-color: var(--personal);
+    box-shadow: var(--personal-shadow);
+}
+
+input:checked ~ .bubble::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+}
+
+.create-task .options label div {
+    color: var(--darkest);
+    font-size: 1.125rem;
+    margin-top: 1rem;
+}
+
+#new-task-input::placeholder {
+    color: var(--grey);
+}
+
+#new-task-submit {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.125rem;
+    padding-right: 50px;
+    padding: 1rem 1.5rem;
+    color: var(--white);
+    background-color: var(--darkest);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    cursor: initial;
+    transition: 0.2s ease-in-out;
+}
+/* styling the submit button and adding the hover attribuute. */
+#new-task-submit:hover {
+   opacity: 0.75;
+}
+
+#new-task-submit:active {
+    opacity: 0.6;
+}
+
+main {
+   flex: 1 1 0%;
+   padding: 2rem 1rem;
+   max-width: 800px;
+   width: 100%;
+   margin: 0 auto; 
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Staatliches', cursive;
+    color: var(--darkest);
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem 1rem;
+    margin-bottom: 0.5rem;
+}
+.title {
+    text-align: center;
+    font-family: 'Staatliches', cursive;
+    font-size: 2rem;
+    font-weight: 300;
+    padding: 1rem 1rem;
+    color: var(--darkest);
+    margin-bottom: 0.5rem;
+}
+
+.task-list .task-content {
+    margin: 1rem 0;
+}
+
+.task-list input[type="text"] {
+    display: flex;
+    align-items: center;
+    background-color: var(--green);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+}
+.task-item label {
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+.task-list .task-content {
+    flex: 1 1 0%;
+}
+
+.task-list .task-content input {
+    color: var(--white);
+    font-size: 18px;
+}
+
+
+
+.task-list .actions {
+    display: flex;
+    align-items: center;
+}
+
+.task-list .actions button {
+   cursor: pointer; 
+   margin: 0 0.5rem;
+   font-size: 1.125rem;
+   font-weight: 700;
+   text-transform: uppercase;
+   border-radius: 15px;
+   background-color: var(--white);
+   transition: 0.6s;
+}
+/* copying the opacity from the submit button */
+.task-list .actions button:hover {
+    opacity: 0.5;
+}
+ 
+.task-list .actions button:active {
+     opacity: 0.6;
+}
+
+.task-list .actions .edit {
+    color: var(--darkest);
+}
+
+.task-list .actions .delete {
+    color:#b22222;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+   body {
+     width: 100;
+   }
+}
